@@ -146,3 +146,50 @@ This project was built as a final deliverable for BUS 658 — Information & Data
 The analysis attends the 2025 Entertainment Analytics Conference in Los Angeles where similar alt data methodologies were discussed by analysts from Disney, Netflix, and Sony.
 ### Regression Model
 Two-way fixed effects OLS:
+Tesla Share(i,t) = β₁ Gas Price(t) + β₂ Rivian Search(t) +
+β₃ Post-IRA(t) + β₄ Post-Tariff(t) +
+α(i) + γ(t) + ε(i,t)
+
+Where α(i) = state fixed effects, γ(t) = quarter fixed effects
+
+### Results
+
+| Variable | Coefficient | p-value | Interpretation |
+|---|---|---|---|
+| Post-Tariff (2024Q2+) | −0.089 | 0.040 ** | Share fell ~9pp post-tariff — competitive erosion continued |
+| Gas Price ($/gal) | −0.099 | 0.018 * | Higher gas prices drove EV demand broadly but not toward Tesla |
+| Post-IRA (2022Q3+) | −0.059 | 0.009 ** | Share fell ~6pp — subsidies benefited broader market |
+| Rivian Search Interest | +0.241 | 0.152 | Not significant |
+
+**Model fit:** R² = 0.863 · Adj. R² = 0.844 · N = 298
+
+> The high R² reflects two-way fixed effects absorbing stable cross-state differences. Without fixed effects R² = 0.197. The model identifies within-state variation over time, not cross-state comparisons.
+
+### Alt Data Analysis
+- **Tariff event study:** 12-month window around May 2024 announcement — Tesla search +6.3% post-tariff (64.6 → 68.7), BYD flat at zero throughout
+- **FSD demand signal:** FSD v12 (March 2024) generated +166% attention spike, hitting index maximum of 100 — largest signal in the entire dataset
+
+---
+
+## Identification Challenges
+
+This analysis uses observational data and search proxies. Results should be interpreted as directional signals, not causal estimates.
+
+- **Proxy validity** — Google Trends measures attention, not purchases
+- **Confounded timing** — tariff coincided with Rivian R2 launch and macro EV slowdown
+- **Reverse causality** — higher Tesla share could drive more Tesla search interest
+- **Omitted variables** — interest rates, financing costs, Musk sentiment not controlled
+- **External validity** — California (~35-40% of US EV sales) excluded due to annual vs. quarterly data mismatch
+- **Parallel trends** — not formally tested
+
+---
+
+## Strategic Implications
+
+1. **Address Ford + Hyundai/Kia — not Chinese EVs.** Registration data shows 9 out of 10 new EV buyers in this sample went to non-Tesla brands. Ford wins the truck segment; Hyundai/Kia win the sub-$40k sedan segment. These are the actual competitive gaps.
+
+2. **Treat FSD releases as demand events.** The +166% attention spike at FSD v12 is the largest signal in this dataset — larger than the IRA, larger than the tariff. Autonomy events are Tesla's strongest observed demand lever.
+
+3. **Build a cost structure that survives tariff reduction.** BYD Seagull starts at ~$10k in China. At 100% tariff → $20k landed. At 25% → $12.5k. Tesla has no product at those price points. The $25k vehicle platform is a tariff hedge, not just a market expansion play.
+
+---
