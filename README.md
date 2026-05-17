@@ -102,9 +102,9 @@ This analysis uses observational data and search proxies. Results should be inte
 
 3. **Build a cost structure that survives tariff reduction.** BYD Seagull starts at ~$10k in China. At 100% tariff → $20k landed. At 25% → $12.5k. Tesla has no product at those price points. The $25k vehicle platform is a tariff hedge, not just a market expansion play.
 
----
-
 ## Repository Structure
+
+```
 ev-market-analysis/
 ├── notebooks/
 │   ├── 01_data_collection.ipynb    # API pulls, Google Trends, event dates
@@ -117,9 +117,7 @@ ev-market-analysis/
 ├── outputs/
 │   └── figures/                    # All visualizations
 └── README.md
-> **Note:** `data/raw/` is excluded from this repo (file size + API keys). To reproduce, run `01_data_collection.ipynb` with your own free API keys from eia.gov/opendata and developer.nrel.gov.
-
----
+```
 
 ## Tech Stack
 Python 3.13
